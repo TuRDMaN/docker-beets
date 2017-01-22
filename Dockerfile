@@ -64,8 +64,8 @@ RUN \
 #	pylast && \		
 
 # cleanup
- apk del --purge \
-	build-dependencies && \
+# apk del --purge \
+#	build-dependencies && \
  rm -rf \
 	/root/.cache \
 	/tmp/*
