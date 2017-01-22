@@ -13,6 +13,7 @@ RUN \
 	ffmpeg \
 	ffmpeg-libs \
 	python3 \	
+	py-pip \
 	wget && \
 
 # install build packages
@@ -53,14 +54,14 @@ RUN \
 
 # install pip packages
  pip install --no-cache-dir -U \
-	irs \
+	irs && \
 #	beets \
 #	beets-copyartifacts \
 #	flask \
 #	pillow \
-	pip && \
+#	pip \
 #	pyacoustid \
-#	pylast && \	
+#	pylast && \		
 
 # cleanup
  apk del --purge \
