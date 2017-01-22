@@ -16,17 +16,17 @@ RUN \
 	wget && \
 
 # install build packages
- apk add --no-cache --virtual=build-dependencies \
-	cmake \
-	ffmpeg-dev \
-	g++ \
-	gcc \
-	git \
-	jpeg-dev \
-	libpng-dev \
-	make \
-	openjpeg-dev \
-	python3-dev && \
+# apk add --no-cache --virtual=build-dependencies \
+#	cmake \
+#	ffmpeg-dev \
+#	g++ \
+#	gcc \
+#	git \
+#	jpeg-dev \
+#	libpng-dev \
+#	make \
+#	openjpeg-dev \
+#	python3-dev && \
 
 # compile mp3gain
 # mkdir -p \
