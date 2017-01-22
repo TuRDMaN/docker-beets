@@ -81,3 +81,10 @@ COPY root/ /
 # ports and volumes
 #EXPOSE 8337
 VOLUME /config /downloads /music
+
+# set Python3 as default
+rm /user/bin/python
+ln -s /usr/bin/python3 /usr/bin/python
+
+# run shell
+/bin/bash
