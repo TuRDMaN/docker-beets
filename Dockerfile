@@ -84,7 +84,7 @@ VOLUME /config /downloads /music
 
 # set Python3 as default
 RUN \
- rm /user/bin/python && \
+ rm /usr/bin/python && \
  ln -s /usr/bin/python3 /usr/bin/python && \
 
 # run shell
