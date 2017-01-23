@@ -87,7 +87,7 @@ COPY root/ /
 VOLUME /config /downloads /music
 
 # set Python3 as default
-#RUN \
+RUN \
 # rm /usr/bin/python && \
 # ln -s /usr/bin/python3 /usr/bin/python && \
 
