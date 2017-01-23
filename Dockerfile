@@ -8,11 +8,12 @@ LABEL build_version="Version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 
 # install runtime packages
 RUN \
+ apk update --no-cache
 
- apk update && \
+RUN \
+ apk del --no-cache py-setuptools py-pip python
 
- apk del py-setuptools py-pip python & \
-
+RUN \
  apk add --no-cache \
 	curl \
 	ffmpeg \
