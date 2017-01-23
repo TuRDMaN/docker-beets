@@ -24,7 +24,7 @@ RUN \
  fi && \ 
 
 # install pip
- python -m ensurepip && \
+ python3 -m ensurepip && \
 	rm -r /usr/lib/python*/ensurepip && \
 	pip3 install --upgrade pip setuptools && \	
 
@@ -65,7 +65,7 @@ RUN \
 # make install && \
 
 # set Python3 as default
- if [ -f /usr/bin/python ] && [ -f /usr/bin/python3 ]; then ln -sf /usr/bin/python3 /usr/bin/python; fi && \
+ if [ -f /usr/bin/python3 ]; then ln -sf /usr/bin/python3 /usr/bin/python; fi && \
 
 # install pip packages
  pip3 install --no-cache-dir -U \
@@ -99,6 +99,6 @@ VOLUME /config /downloads /music
 
 RUN \
 # set Python3 as default
- if [ -f /usr/bin/python ] && [ -f /usr/bin/python3 ]; then ln -sf /usr/bin/python3 /usr/bin/python; fi && \
+ if [ -f /usr/bin/python3 ]; then ln -sf /usr/bin/python3 /usr/bin/python; fi && \
 # run shell
  /bin/bash
