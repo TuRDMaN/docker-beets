@@ -19,7 +19,7 @@ RUN \
 	python3 && \
 
 # set Python3 as default
- if [ -f /usr/bin/python ] && [ -f /usr/bin/python3 ]; ln -sf /usr/bin/python3 /usr/bin/python; fi && \ 
+ if [ -f /usr/bin/python ] && [ -f /usr/bin/python3 ]; then ln -sf /usr/bin/python3 /usr/bin/python; fi && \ 
 
 # install pip
  python -m ensurepip && \
