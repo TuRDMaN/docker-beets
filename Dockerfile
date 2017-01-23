@@ -6,8 +6,11 @@ ARG BUILD_DATE
 ARG VERSION
 LABEL build_version="Version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 
-# install runtime packages
+# remove Python2 and install runtime packages
 RUN \
+
+ apk del py-setuptools py-pip python && \
+
  apk add --no-cache \
 	curl \
 	ffmpeg \
@@ -15,8 +18,11 @@ RUN \
 	wget \
 	python3 && \
 
+# set Python3 as default
+ if [ -f /usr/bin/python ] && [ -f /usr/bin/python3 ]; ln -sf /usr/bin/python3 /usr/bin/python; fi && \ 
+
 # install pip
- python3 -m ensurepip && \
+ python -m ensurepip && \
 	rm -r /usr/lib/python*/ensurepip && \
 	pip3 install --upgrade pip setuptools && \	
 
@@ -57,7 +63,7 @@ RUN \
 # make install && \
 
 # install pip packages
- pip install --no-cache-dir -U \
+ pip3 install --no-cache-dir -U \
 	irs && \
 #	beets \
 #	beets-copyartifacts \
@@ -86,10 +92,6 @@ COPY root/ /
 #EXPOSE 8337
 VOLUME /config /downloads /music
 
-# set Python3 as default
 RUN \
-# rm /usr/bin/python && \
-# ln -s /usr/bin/python3 /usr/bin/python && \
-
 # run shell
  /bin/bash
