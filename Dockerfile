@@ -92,9 +92,6 @@ ENV IRSDIR="/config" \
 EDITOR="nano" \
 HOME="/config"
 
-# copy local files
-COPY root/ /
-
 # ports and volumes
 #EXPOSE 8337
 VOLUME /config /downloads /music
@@ -106,5 +103,7 @@ RUN \
  apk add python3 && \ 
 # set Python3 as default
  if [ -f /usr/bin/python3 ]; then ln -sf /usr/bin/python3 /usr/bin/python; fi && \
+# copy local files
+COPY root/ /
 # run shell
  /bin/bash
