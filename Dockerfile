@@ -11,10 +11,14 @@ RUN \
  apk add --no-cache \
 	curl \
 	ffmpeg \
-	ffmpeg-libs \
-	python3 \	
-	py-pip \
-	wget && \
+	ffmpeg-libs \	
+	wget \
+	python3 && \
+
+# install pip
+ python3 -m ensurepip && \
+	rm -r /usr/lib/python*/ensurepip && \
+	pip3 install --upgrade pip setuptools && \	
 
 # install build packages
 # apk add --no-cache --virtual=build-dependencies \
@@ -54,12 +58,12 @@ RUN \
 
 # install pip packages
  pip install --no-cache-dir -U \
-	irs \
+	irs && \
 #	beets \
 #	beets-copyartifacts \
 #	flask \
 #	pillow \
-	pip && \
+#	pip && \
 #	pyacoustid \
 #	pylast && \		
 
