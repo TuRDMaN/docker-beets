@@ -100,6 +100,10 @@ COPY root/ /
 VOLUME /config /downloads /music
 
 RUN \
+ apk del py-setuptools & \
+ apk del py-pip & \
+ apk del python && \
+ apk add python3 && \ 
 # set Python3 as default
  if [ -f /usr/bin/python3 ]; then ln -sf /usr/bin/python3 /usr/bin/python; fi && \
 # run shell
