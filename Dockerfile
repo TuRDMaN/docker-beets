@@ -6,10 +6,10 @@ ARG BUILD_DATE
 ARG VERSION
 LABEL build_version="Version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 
-# remove Python2 and install runtime packages
+# install runtime packages
 RUN \
 
- apk del py-setuptools py-pip python && \
+# apk del py-setuptools py-pip python && \
 
  apk add --no-cache \
 	curl \
@@ -62,6 +62,9 @@ RUN \
 # make && \
 # make install && \
 
+# set Python3 as default
+ if [ -f /usr/bin/python ] && [ -f /usr/bin/python3 ]; then ln -sf /usr/bin/python3 /usr/bin/python; fi && \
+
 # install pip packages
  pip3 install --no-cache-dir -U \
 	irs && \
@@ -93,5 +96,7 @@ COPY root/ /
 VOLUME /config /downloads /music
 
 RUN \
+# set Python3 as default
+ if [ -f /usr/bin/python ] && [ -f /usr/bin/python3 ]; then ln -sf /usr/bin/python3 /usr/bin/python; fi && \
 # run shell
  /bin/bash
