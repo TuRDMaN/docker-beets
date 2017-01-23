@@ -9,7 +9,9 @@ LABEL build_version="Version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 # install runtime packages
 RUN \
 
-# apk del py-setuptools py-pip python && \
+ apk update && \
+
+ apk del py-setuptools py-pip python & \
 
  apk add --no-cache \
 	curl \
@@ -24,9 +26,9 @@ RUN \
  fi && \ 
 
 # install pip
- python3 -m ensurepip && \
-	rm -r /usr/lib/python*/ensurepip && \
-	pip3 install --upgrade pip setuptools && \	
+# python3 -m ensurepip && \
+#	rm -r /usr/lib/python*/ensurepip && \
+#	pip3 install --upgrade pip setuptools && \	
 
 # install build packages
 # apk add --no-cache --virtual=build-dependencies \
