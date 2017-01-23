@@ -97,8 +97,8 @@ HOME="/config"
 VOLUME /config /downloads /music
 
 RUN \
- apk del py-setuptools & \
- apk del py-pip & \
+# apk del py-setuptools & \
+# apk del py-pip & \
  apk del python && \
  apk add python3 && \ 
 # set Python3 as default
